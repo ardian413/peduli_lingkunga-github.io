@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artikel Lingkungan - Mahasiswa Peduli Lingkungan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<style>
+    /* Style untuk section artikel */
+.artikel1 {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.artikel1 h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Style untuk setiap artikel */
+article {
+    background: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+article:hover {
+    transform: translateY(-5px);
+}
+
+article img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+article h3 {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+article p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+article p strong {
+    color: #000;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .artikel1 {
+        width: 95%;
+    }
+    
+    article img {
+        max-height: 200px;
+    }
+    
+    article h3 {
+        font-size: 18px;
+    }
+    
+    article p {
+        font-size: 14px;
+    }
+}
+</style>
+<style>
+    /*comentlikeshare*/
+    .interaction-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .interaction-buttons button {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.3s;
+    }
+    .interaction-buttons button:hover {
+        background-color: #ddd;
+    }
+    .comment-section, .share-section {
+        margin-top: 15px;
+        padding: 10px;
+        background: #f1f1f1;
+        border-radius: 5px;
+        display: none;
+    }
+    .comment-section textarea {
+        width: 100%;
+        height: 60px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    .comment-section button {
+        background-color: #2e7d32;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .comment-section button:hover {
+        background-color: #1b5e20;
+    }
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #2e7d32;
+        color: white;
+        margin-top: 20px;
+    }
+</style>
+<body>
+    
+        <!-- Header -->
+        <header>
+            <div class="title-container">
+                <h1>Artikel - Mahasiswa Peduli Lingkungan</h1>
+                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            </div><br><br>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="blog.html">Blog Berita</a></li>
+                    <li><a href="sastra hijau.html" >Sastra Hijau</a></li>
+                    <li><a href="artikel lingkungan.html"class="active">Artikel Lingkungan</a></li>
+                    <li><a href="galeri.html">Galeri Foto</a></li>
+                    <li><a href="tentang.html">Tentang Kami</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+    <!-- Konten Artikel Lingkungan -->
+    <section class="artikel1">
+        <h2>Artikel Terkini</h2>
+
+        <article>
+            <img src="foto dikjut 2025/4.jpeg" alt="Dampak Polusi Udara">
+            <h3 id="topi1">Dampak Polusi Udara terhadap Kesehatan</h3>
+            <p><strong>Dipublikasikan pada: 30 Maret 2025 - 09:00 WITA</strong></p>
+            <p>Penyebab dan dampak pencemaran udara yang paling utama selalu terkait dengan manusia. Manusia menjadi penyebab utama dan terbesar terjadinya pencemaran udara. Pun manusia pula yang merasakan dampak terburuk dari terjadinya pencemaran udara. Pencemaran udara merupakan salah satu kerusakan lingkungan, berupa penurunan kualitas udara karena masuknya unsur-unsur berbahaya ke dalam udara atau atmosfer bumi. Unsur-unsur berbahaya yang masuk ke dalam atmosfer tersebut bisa berupa karbon monoksida (CO), Nitrogen dioksida (No2), chlorofluorocarbon (CFC), sulfur dioksida (So2), Hidrokarbon (HC), Benda Partikulat, Timah (Pb), dan Carbon Diaoksida (CO2). Unsur-unsur tersebut bisa disebut juga sebagai polutan atau jenis-jenis bahan pencemar udara.
+                </p>
+                    <!-- Tombol Interaksi -->
+                    <div class="interaction-buttons">
+                        <button class="like-button" data-article-id="article123" onclick="likePost(this)">
+                            <span>0</span> Likes
+                        </button>
+                        
+                        <button class="comment-button" onclick="toggleCommentSection(this)">Comment</button>
+                        <button class="share-button" data-article-id="1" onclick="shareArticle(this)">Bagikan</button>
+                    </div>
+                
+                    <!-- Bagian Komentar -->
+                    <div class="comment-section" data-article-id="1" style="display: none;">
+                        <textarea placeholder="Tulis komentar..."></textarea>
+                        <button onclick="postComment(this)" data-article-id="1">Kirim</button>
+                        <div class="comments-list"></div>
+                    </div>
+                </article>
+                
+
+        </article>
+
+        <article>
+            <img src="foto dikjut 2025/5.jpeg" alt="Pentingnya Reboisasi">
+            <h3 id="topik2">Pentingnya Reboisasi dalam Menjaga Ekosistem</h3>
+            <p><strong>Dipublikasikan pada: 25 Maret 2025 - 14:00 WITA</strong></p>
+            <p>Pengertian reboisasi cukup beragam. Namun memiliki inti yang sama yaitu penanaman kembali pohon di hutan. Berikut pegertian reboisasi berdasarkan KBBI, Peraturan Pemerintah (PP) Nomor 35 Tahun 2002 dan Dinas Lingkungan Hidup kabupaten Buleleng.
+
+                Dalam Kamus Besar Bahasa Indonesia, reboisasi adalah penanaman kembali hutan yang ditebang, tandus, atau gundul.
+                
+                Pengertian lain dari reboisasi juga tercantum dalam Peraturan Pemerintah (PP) Nomor 35 Tahun 2002 menjelaskan bahwa reboisasi adalah upaya penanaman jenis pohon hutan di kawasan hutan yang rusak berupa lahan kosong, alang-alang, atau semak belukar untuk mengambalikan fungsi hutan.
+                
+                Sementara itu dalam laman situs DLH kabupaten Buleleng, reboisasi diartikan sebagai penghijauan yang dilakukan di hutan gundul.
+                
+                Sehingga dapat disimpulkan bahwa pengertian reboisasi adalah aktivitas, usaha, langkah atau upaya penanaman pohon di kawasan hutan untuk mengambalikan fungsi hutan sebagaimana mestinya.</p>
+                 <!-- Tombol Interaksi -->
+                 <div class="interaction-buttons">
+                    <button class="like-button" data-article-id="article123" onclick="likePost(this)">
+                        <span>0</span> Likes
+                    </button>
+                    
+                    <button class="comment-button" onclick="toggleCommentSection(this)">Comment</button>
+                    <button class="share-button" data-article-id="1" onclick="shareArticle(this)">Bagikan</button>
+                </div>
+            
+                <!-- Bagian Komentar -->
+                <div class="comment-section" data-article-id="1" style="display: none;">
+                    <textarea placeholder="Tulis komentar..."></textarea>
+                    <button onclick="postComment(this)" data-article-id="1">Kirim</button>
+                    <div class="comments-list"></div>
+                </div>
+            
+        </article>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mahasiswa Peduli Lingkungan</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("show");
+        }
+        
+        
+    </script>
+    <script>
+        // Fungsi untuk menyimpan data ke localStorage
+        function saveToLocalStorage(key, value) {
+            localStorage.setItem(key, JSON.stringify(value));
+        }
+    
+        // Fungsi untuk mendapatkan data dari localStorage
+        function getFromLocalStorage(key) {
+            return JSON.parse(localStorage.getItem(key)) || {};
+        }
+    
+        // Fungsi Like (Hanya Sekali)
+        function likePost(button) {
+            let articleId = button.getAttribute("data-article-id");
+            let likes = getFromLocalStorage("likes");
+            let likedArticles = getFromLocalStorage("likedArticles");
+    
+            if (likedArticles[articleId]) {
+                alert("Anda sudah menyukai artikel ini!");
+                return; // Menghentikan proses like jika sudah menyukai sebelumnya
+            }
+    
+            if (!likes[articleId]) {
+                likes[articleId] = 0;
+            }
+    
+            likes[articleId]++;
+            likedArticles[articleId] = true; // Menandai artikel sudah disukai oleh pengguna
+    
+            saveToLocalStorage("likes", likes);
+            saveToLocalStorage("likedArticles", likedArticles);
+    
+            button.querySelector("span").innerText = likes[articleId];
+            button.disabled = true; // Menonaktifkan tombol setelah like
+        }
+    
+        // Fungsi untuk Memuat Like saat halaman dimuat
+        function loadLikes() {
+            let likes = getFromLocalStorage("likes");
+            let likedArticles = getFromLocalStorage("likedArticles");
+    
+            document.querySelectorAll(".like-button").forEach(button => {
+                let articleId = button.getAttribute("data-article-id");
+    
+                if (likes[articleId]) {
+                    button.querySelector("span").innerText = likes[articleId];
+                }
+    
+                if (likedArticles[articleId]) {
+                    button.disabled = true; // Menonaktifkan tombol jika sudah disukai
+                }
+            });
+        }
+    
+        // Fungsi Toggle Komentar
+        function toggleCommentSection(button) {
+            let commentSection = button.parentElement.nextElementSibling;
+            commentSection.style.display = commentSection.style.display === "none" ? "block" : "none";
+        }
+    
+        // Fungsi untuk Menambahkan Komentar (Permanen)
+        function postComment(button) {
+            let articleId = button.getAttribute("data-article-id");
+            let commentSection = button.parentElement;
+            let textarea = commentSection.querySelector("textarea");
+            let commentsList = commentSection.querySelector(".comments-list");
+    
+            if (textarea.value.trim() !== "") {
+                let comments = getFromLocalStorage("comments");
+    
+                if (!comments[articleId]) {
+                    comments[articleId] = [];
+                }
+    
+                comments[articleId].push(textarea.value);
+                saveToLocalStorage("comments", comments);
+    
+                let newComment = document.createElement("p");
+                newComment.textContent = textarea.value;
+                commentsList.appendChild(newComment);
+                textarea.value = "";
+            }
+        }
+    
+        // Fungsi untuk Memuat Komentar dari localStorage saat halaman dimuat
+        function loadComments() {
+            let comments = getFromLocalStorage("comments");
+            document.querySelectorAll(".comment-section").forEach(section => {
+                let articleId = section.getAttribute("data-article-id");
+                let commentsList = section.querySelector(".comments-list");
+    
+                if (comments[articleId]) {
+                    comments[articleId].forEach(comment => {
+                        let newComment = document.createElement("p");
+                        newComment.textContent = comment;
+                        commentsList.appendChild(newComment);
+                    });
+                }
+            });
+        }
+    
+        // Fungsi Bagikan Artikel
+        function shareArticle(button) {
+            let articleId = button.getAttribute("data-article-id");
+            let articleTitle = document.getElementById(`topik${articleId}`).innerText;
+            let articleURL = window.location.href; // Gunakan URL halaman saat ini
+    
+            let shareText = `Saya baru saja membaca artikel menarik: "${articleTitle}". Cek di sini: ${articleURL}`;
+    
+            let whatsappURL = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+            let facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleURL)}`;
+            let twitterURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+    
+            window.open(whatsappURL, "_blank");
+        }
+    
+        // Memuat data like dan komentar saat halaman pertama kali dibuka
+        document.addEventListener("DOMContentLoaded", function () {
+            loadLikes();
+            loadComments();
+        });
+    </script>
+     
+    
+</body>
+</html>

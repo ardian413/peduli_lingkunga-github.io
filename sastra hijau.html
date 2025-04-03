@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Berita - Mahasiswa Peduli Lingkungan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+
+</head>
+</head>
+<style>/* Style Umum */
+    body {
+        background: url('foto dikjut 2025/1.jpg') no-repeat center center/cover;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+    
+    /* Header */
+    header {
+        background-color: #2e7d32;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .title-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    
+    
+    /* Navigasi */
+    nav {
+        background-color: #2e7d32;
+        padding: 10px 0;
+        text-align: center;
+    }
+    
+    .nav-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+    }
+    
+    .nav-menu li {
+        margin: 0 15px;
+    }
+    
+    .nav-menu a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        transition: 0.3s;
+    }
+    
+    .nav-menu a:hover, .nav-menu .active {
+        background-color: #2e7d32;
+        border-radius: 5px;
+    }
+    
+    /* Konten Sastra Hijau */
+    section.sastra {
+        max-width: 800px;
+        margin: 20px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    article {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-left: 5px solid #45a049;
+        background: #f9f9f9;
+        border-radius: 5px;
+    }
+    
+    article h3 {
+        color: #2c6e49;
+    }
+    
+    .btn {
+        display: inline-block;
+        background: #45a049;
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+    
+    .btn:hover {
+        background: #45a049;
+    }
+    
+    /*KOMENTAR*/
+    .sastra {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.karya {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.comments {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.comments h3 {
+    margin-bottom: 10px;
+}
+
+.commentForm input, .commentForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.commentForm button {
+    background: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.commentList {
+    margin-top: 15px;
+}
+
+.comment-item {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+/* Styling untuk menyembunyikan komentar */
+.hidden {
+    display: none;
+}
+
+/* Tombol untuk menampilkan komentar */
+.toggle-comments {
+    background: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+/*pooto penulis*/
+/* Styling untuk informasi penulis */
+.penulis {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.penulis img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sastra {
+    flex: 1; /* Membuat konten utama mengisi ruang agar footer tetap di bawah */
+}
+
+    </style>
+<script>
+  
+    function toggleMenu() {
+        const menu = document.querySelector(".nav-menu");
+        menu.classList.toggle("show");
+    }
+
+    function tambahKomentar() {
+        const nama = document.getElementById("nama").value;
+        const komentar = document.getElementById("komentar").value;
+        if (nama && komentar) {
+            const komentarBaru = document.createElement("div");
+            komentarBaru.classList.add("komentar-item");
+            komentarBaru.innerHTML = `<strong>${nama}:</strong> <p>${komentar}</p>`;
+            document.getElementById("daftar-komentar").appendChild(komentarBaru);
+            document.getElementById("nama").value = "";
+            document.getElementById("komentar").value = "";
+        }
+    }
+
+/*komentar*/
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleButtons = document.querySelectorAll(".toggle-comments");
+
+    toggleButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+            const commentsSection = this.nextElementSibling;
+            commentsSection.classList.toggle("hidden");
+            this.textContent = commentsSection.classList.contains("hidden") ? "Lihat Komentar" : "Tutup Komentar";
+        });
+    });
+
+    const commentForms = document.querySelectorAll(".commentForm");
+
+    commentForms.forEach((form) => {
+        const commentList = form.nextElementSibling;
+        const postId = form.getAttribute("data-post-id"); // Menggunakan ID unik per postingan
+
+        // Fungsi untuk memuat komentar dari LocalStorage
+        function loadComments() {
+            const storedComments = JSON.parse(localStorage.getItem(`comments-${postId}`)) || [];
+            commentList.innerHTML = "";
+            storedComments.forEach(({ name, comment }) => {
+                const commentItem = document.createElement("div");
+                commentItem.classList.add("comment-item");
+                commentItem.innerHTML = `<strong>${name}:</strong> <p>${comment}</p>`;
+                commentList.appendChild(commentItem);
+            });
+        }
+
+        // Panggil fungsi loadComments saat halaman dimuat
+        loadComments();
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const name = form.querySelector(".name").value;
+            const comment = form.querySelector(".comment").value;
+
+            if (name.trim() !== "" && comment.trim() !== "") {
+                const newComment = { name, comment };
+                const storedComments = JSON.parse(localStorage.getItem(`comments-${postId}`)) || [];
+
+                storedComments.push(newComment);
+                localStorage.setItem(`comments-${postId}`, JSON.stringify(storedComments));
+
+                // Tambahkan komentar ke tampilan tanpa memuat ulang
+                const commentItem = document.createElement("div");
+                commentItem.classList.add("comment-item");
+                commentItem.innerHTML = `<strong>${name}:</strong> <p>${comment}</p>`;
+                commentList.appendChild(commentItem);
+
+                // Hapus isi formulir setelah komentar dikirim
+                form.reset();
+            }
+        });
+    });
+});
+
+
+</script>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="title-container">
+            <h1>Sastra Hijau - Mahasiswa Peduli Lingkungan</h1>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div><br><br>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="blog.html">Blog Berita</a></li>
+                <li><a href="sastra hijau.html" class="active">Sastra Hijau</a></li>
+                <li><a href="artikel lingkungan.html">Artikel Lingkungan</a></li>
+                <li><a href="galeri.html">Galeri Foto</a></li>
+                <li><a href="tentang.html">Tentang Kami</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Konten Sastra Hijau -->
+    <section class="sastra">
+        <article class="karya">
+            <h2>Puisi: Rinduku Pada Alam</h2><br>
+    
+            <!-- Info Penulis -->
+            <div class="penulis">
+                <img src="foto dikjut 2025/cosip.jpg" alt="Penulis 1">
+                <p><strong>Nma Rimba: Cosip <br>
+                angkatan II</strong></p>
+            </div>
+    
+            <p>
+                Pepohonan bergoyang ditiup angin<br>
+                Suara burung menyanyikan kedamaian<br>
+                Namun kini semua tinggal bayangan<br>
+                Alam menangis kehilangan teman
+            </p><br>      
+        </article>
+        <article class="karya">
+            <h2>Puisi/cerpen/pantun</h2><br>
+    
+            <!-- Info Penulis -->
+            <div class="penulis">
+                <img src="foto dikjut 2025/klh.webp" alt="Penulis 1">
+                <p><strong>Nama Rimba: ... <br>
+                angkatan: ...</strong></p>
+            </div>
+    
+            <p>
+                ...
+            </p><br>
+        </article>
+        <article class="karya">
+            <h2>Puisi/cerpen/pantun</h2><br>
+            <!-- Info Penulis -->
+            <div class="penulis">
+                <img src="foto dikjut 2025/logo hutan gunung.webp" alt="Penulis 1">
+                <p><strong>Nama Rimba: ... <br>
+                angkatan: ...</strong></p>
+            </div>
+            <p>
+                ...
+            </p><br>
+        </article>
+        <!-- Tombol untuk menampilkan komentar -->
+        <button class="toggle-comments">Lihat Komentar</button>
+    
+        <!-- Formulir komentar (disembunyikan dulu) -->
+        <section class="comments hidden">
+            <h3>Komentar</h3>
+            <form class="commentForm">
+                <input type="text" class="name" placeholder="Nama Anda" required>
+                <textarea class="comment" placeholder="Tulis komentar Anda..." required></textarea>
+                <button type="submit">Kirim Komentar</button>
+            </form>
+            <div class="commentList"></div>
+        </section>
+    </section>
+    
+    <script src="script.js"></script>
+    
+    <footer>
+        <p>&copy; 2025 Mahasiswa Peduli Lingkungan</p>
+    </footer>
+</body>
+</html>

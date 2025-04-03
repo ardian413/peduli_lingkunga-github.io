@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami - Mahasiswa Peduli Lingkungan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+</head>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector(".nav-menu");
+        menu.classList.toggle("show");
+    }
+</script>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="title-container">
+            <h1>Mahasiswa Peduli Lingkungan Universitas Hamzanwadi</h1>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div><br><br>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="blog.html">Blog Berita</a></li>
+                <li><a href="sastra hijau.html">Sastra Hijau</a></li>
+                <li><a href="artikel lingkungan.html">Artikel Lingkungan</a></li>
+                <li><a href="galeri.html">Galeri Foto</a></li>
+                <li><a href="tentang.html">Tentang Kami</a></li>
+                <li><a href="kontak.html"class="active">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Bagian Kontak -->
+    <main>
+        <section class="contact">
+            <h2>Hubungi Kami</h2>
+            <p>Jika Anda memiliki pertanyaan atau ingin berpartisipasi dalam kegiatan kami, silakan hubungi kami melalui formulir berikut atau kontak yang tersedia.</p>
+            
+            <div class="contact-container">
+                <!-- Formulir Kontak -->
+                <form action="proses_kontak.php" method="post" class="contact-form">
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" name="name" required placeholder="Masukkan nama Anda">
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Masukkan email Anda">
+
+                    <label for="message">Pesan</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Tulis pesan Anda"></textarea>
+
+                    <button type="submit" class="btn">Kirim Pesan</button>
+                </form>
+
+                <!-- Informasi Kontak -->
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <ul>
+                        <li><strong>Email:</strong> <a href="mailto:mpluh@hamzanwadi.ac.id">mpluh@hamzanwadi.ac.id</a></li>
+                        <li><strong>Telepon:</strong> <a href="tel:+6281234567890">+62 812-3456-7890</a></li>
+                        <li><strong>Alamat:</strong> Universitas Hamzanwadi, Lombok Timur, Indonesia</li>
+                    </ul>
+
+                    <h3>Ikuti Kami</h3>
+                    <div class="social-icons">
+                        <a href="https://linktr.ee/mpl_u.h?utm_source=linktree_profile_share&ltsid=8791e3c7-3b2d-4eac-9467-128c0701170d" target="_blank"><img src="foto dikjut 2025/logo.png" alt="MPL"></a>
+
+                        <div id="infoDivisi" class="info-box">
+                <p id="divisiText">Klik Logo</p>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mahasiswa Peduli Lingkungan Universitas Hamzanwadi. Semua Hak Dilindungi.</p>
+    </footer>
+
+</body>
+</html>

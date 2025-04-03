@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisi Jurnalistik</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>/* Import Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        background-color: #f8f9fa;
+        color: #333;
+    }
+    
+    /* Header */
+    header {
+        background-color: #007bff;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    nav ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+    
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Hero Section */
+    .hero {
+        background: url('foto dikjut 2025/jurnalistik.webp') no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+        margin-top: 80px;
+    }
+    
+    .hero-content h2 {
+        font-size: 2em;
+    }
+    
+    .hero-content p {
+        margin: 15px 0;
+    }
+    
+    .btn {
+        display: inline-block;
+        background: #ff9800;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    
+    .btn:hover {
+        background: #e68900;
+    }
+    
+    /* Berita */
+    .berita {
+        text-align: center;
+        padding: 50px 20px;
+    }
+    
+    .berita-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .berita-item {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+    }
+    
+    .berita-item img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    .berita-item h3 {
+        margin: 15px 0 10px;
+        color: #007bff;
+    }
+    
+    .berita-item p {
+        font-size: 0.9em;
+    }
+    
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #007bff;
+        color: white;
+        margin-top: 50px;
+    }
+    </style>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="title-container">
+            <h1>Divisi Jurnalistik</h1>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div><br><br>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="blog.html">Berita</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Selamat Datang di Divisi Jurnalistik</h2>
+            <p>Menulis, Melaporkan, dan Menginspirasi.</p>
+            <a href="berita.html" class="btn">Baca Berita</a>
+        </div>
+    </section>
+
+    <!-- Berita Terbaru -->
+    <section class="berita">
+        <h2>Berita Terbaru</h2>
+        <div class="berita-container">
+            <div class="berita-item">
+                <img src="foto dikjut 2025/jurnalistik.webp" alt="Berita 1">
+                <h3>Judul Berita 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                <a href="berita.html" class="btn">Baca Selengkapnya</a>
+            </div>
+            <div class="berita-item">
+                <img src="foto dikjut 2025/jurnalistik.webp" alt="Berita 2">
+                <h3>Judul Berita 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                <a href="berita.html" class="btn">Baca Selengkapnya</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Divisi Jurnalistik</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-menu").classList.toggle("active");
+        }
+    </script>
+
+</body>
+</html>

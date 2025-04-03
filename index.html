@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahasiswa Peduli Lingkungan - Universitas Hamzanwadi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<style>
+    /*Berita terbaru*/
+    .latest-news {
+    background: url('foto dikjut 2025/1.jpg') no-repeat center center/cover;
+    padding: 50px 20px;
+    color: rgba(14, 13, 13);
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Hindari overflow yang mengganggu */
+}
+
+.news-container {
+    display: flex;
+    overflow-x: auto; /* Mengaktifkan scroll horizontal */
+    scroll-snap-type: x mandatory; /* Membantu scrolling lebih mulus */
+    gap: 20px;
+    padding: 10px;
+    white-space: nowrap; /* Mencegah item turun ke bawah */
+}
+
+.news-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.news-item {
+    flex: 0 0 auto; /* Mencegah item mengecil */
+    width: 80vw; /* Ukuran lebar untuk HP */
+    max-width: 300px; /* Batas maksimal agar tidak terlalu besar */
+    scroll-snap-align: start; /* Memastikan item berhenti dengan rapi */
+}
+
+
+.news-container::-webkit-scrollbar {
+    display: none; /* Hilangkan scrollbar di Chrome & Safari */
+}
+
+.news-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content; /* Pastikan lebar mengikuti isi kontennya */
+}
+
+.news-item {
+    background: rgba(211, 211, 211, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    width: 280px;
+    text-align: left;
+    display: inline-block;
+    white-space: normal;
+    transition: transform 0.3s ease-in-out;
+}
+
+.news-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.news-item h3 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.news-item p {
+    font-size: 14px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #dfa300;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: #45a049;
+}
+
+</style>
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector(".nav-menu");
+        menu.classList.toggle("show");
+    }
+</script>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="title-container">
+            <h1>Mahasiswa Peduli Lingkungan Universitas Hamzanwadi</h1>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div><br><br>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="blog.html">Blog Berita</a></li>
+                <li><a href="sastra hijau.html">Sastra Hijau</a></li>
+                <li><a href="artikel lingkungan.html">Artikel Lingkungan</a></li>
+                <li><a href="galeri.html">Galeri Foto</a></li>
+                <li><a href="tentang.html">Tentang Kami</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Selamat Datang di Mahasiswa Peduli Lingkungan</h2>
+            <p>Kami adalah organisasi mahasiswa Universitas Hamzanwadi yang berkomitmen untuk menjaga kelestarian lingkungan dan menciptakan perubahan positif.</p>
+            <a href="tentang.html" class="btn">Pelajari Lebih Lanjut</a>
+        </div>
+    </section>
+
+    <section class="latest-news">
+        <h2>Berita Terbaru </h2>
+    
+        <!-- Container Scroll -->
+        <div class="news-container" id="newsContainer">
+            <div class="news-wrapper">
+                <article class="news-item">
+                    <img src="foto dikjut 2025/relawan.jpeg" alt="Aksi Bersih Pantai">
+                    <h3>Aksi Bersih Pantai</h3>
+                    <p>Relawan membersihkan pantai dari sampah plastik.</p>
+                    <a href="#" class="btn">Baca Selengkapnya</a>
+                </article>
+    
+                <article class="news-item">
+                    <img src="foto dikjut 2025/ketum.jpg" alt="Penanaman 1000 Pohon">
+                    <h3>Ketua umum Terpilih 2025</h3>
+                    <p>Selamat dan sukses atas terpilihnya</p>
+                    <a href="blog.html#berita1" class="btn">Baca Selengkapnya</a>
+                </article>
+    
+                <article class="news-item">
+                    <img src="foto dikjut 2025/5.jpeg" alt="Reboisasi Hutan">
+                    <h3>Pentingnya Reboisasi dalam Menjaga Ekosistem</h3>
+                    <p>Kelompok pencinta alam melakukan reboisasi.</p>
+                    <a href="artikel lingkungan.html#topik2" class="btn">Baca Selengkapnya</a>
+                </article>
+    
+                <article class="news-item">
+                    <img src="foto dikjut 2025/4.jpeg" alt="Konservasi Mangrove">
+                    <h3>Dampak Polusi Udara terhadap Kesehatan</h3>
+                    <p>Penyebab dan dampak pencemaran udara yang paling utama selalu terkait dengan manusia. Manusia menjadi penyebab utama dan terbesar terjadinya pencemaran udara..</p>
+                    <a href="artikel lingkungan.html#topik1" class="btn">Baca Selengkapnya</a>
+                </article>
+    
+                <article class="news-item">
+                    <img src="foto dikjut 2025/hari bumi.jpg" alt="Edukasi Lingkungan">
+                    <h3>Selamat Hari Hutan</h3>
+                    <p>Dengan memperingati Hari Hutan Internasional semoga kita lebih bijak dalam menggunakan hutan..</p>
+                    <a href="blog.html#berita2" class="btn">Baca Selengkapnya</a>
+                </article>
+            </div>
+        </div>
+    
+        <!-- Tombol Navigasi -->
+        <button class="scroll-btn left" onclick="scrollLeft()">&#10094;</button>
+        <button class="scroll-btn right" onclick="scrollRight()">&#10095;</button>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mahasiswa Peduli Lingkungan Universitas Hamzanwadi. Semua Hak Dilindungi.</p>
+        <div class="social-icons">
+            <a href="#"><img src="foto dikjut 2025/logo.png" alt="mpl"></a>
+        </div>
+    </footer>
+
+    <!-- Script Dipindahkan ke Akhir -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const newsContainer = document.getElementById("newsContainer");
+
+            function scrollLeft() {
+                newsContainer.scrollBy({ left: -300, behavior: "smooth" });
+            }
+
+            function scrollRight() {
+                newsContainer.scrollBy({ left: 300, behavior: "smooth" });
+            }
+
+            // Tambahkan event listener pada tombol
+            document.querySelector(".scroll-btn.left").addEventListener("click", scrollLeft);
+            document.querySelector(".scroll-btn.right").addEventListener("click", scrollRight);
+
+            // Swipe support untuk HP
+            let startX;
+
+            newsContainer.addEventListener("touchstart", (e) => {
+                startX = e.touches[0].clientX;
+            });
+
+            newsContainer.addEventListener("touchmove", (e) => {
+                let moveX = e.touches[0].clientX;
+                let diff = startX - moveX;
+                
+                if (diff > 50) {
+                    scrollRight();
+                } else if (diff < -50) {
+                    scrollLeft();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

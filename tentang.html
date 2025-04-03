@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Mahasiswa Peduli Lingkungan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+</head>
+<style>
+    body {
+    background: url('foto dikjut 2025/1.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.tentang {
+    background: url('foto dikjut 2025/1.jpg') no-repeat center center fixed; 
+    padding: 50px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling untuk bagian "Tim Kami" */
+
+
+/* Efek hover pada anggota tim */
+.tim .anggota img {
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.tim .anggota img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive untuk HP */
+@media (max-width: 768px) {
+    .tentang, .tim {
+        width: 95%;
+        padding: 30px;
+    }
+}
+
+
+</style>
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector(".nav-menu");
+        menu.classList.toggle("show");
+    }
+</script>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="title-container">
+            <h1>Mahasiswa Peduli Lingkungan Universitas Hamzanwadi</h1>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div><br><br>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="blog.html">Blog Berita</a></li>
+                <li><a href="sastra hijau.html">Sastra Hijau</a></li>
+                <li><a href="artikel lingkungan.html">Artikel Lingkungan</a></li>
+                <li><a href="galeri.html">Galeri Foto</a></li>
+                <li><a href="tentang.html"class="active">Tentang Kami</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="tentang">
+        <div class="content">
+            <h2>Tentang Kami</h2>
+            <p>
+                Mahasiswa Peduli Lingkungan (MPL) Universitas Hamzanwadi adalah organisasi mahasiswa yang berkomitmen dalam 
+                pelestarian lingkungan serta edukasi lingkungan hidup. Kami berusaha untuk meningkatkan kesadaran dan aksi nyata 
+                dalam menjaga kelestarian alam.
+            </p>
+            
+            <h3>Visi</h3>
+            <p>
+                "Terbentuknya kader Mahasiswa Peduli Lingkungan (MPL) yang sadar akan keagungan Tuhan, jiwa pancasilais sejati, kritis terhadap isu lingkungan dan menjalin hubungan yang baik dengan semua makhluk-Nya."
+            </p>
+    
+            <h3>Misi</h3>
+            <ul>
+                <li>Membangun kesadaran kolektif anggota khususnya dan masyarakat pada umumnya;</li>
+                <li>Memiliki skill dan bakat dengan masing-masing divisi;</Li>
+                <li>Mencetak kader-kader yang militan dan mampu menjaga marwah organisasi;</Li>
+                <li>Memberikan pelatihan-pelatihan dalam meningkatkan kapasitas anggota</li>
+                
+            </ul>
+        </div>
+    </section>  
+    <section>
+
+        <section class="divisi-container">
+            <h2>Kegiatan Divisi</h2>
+            <div class="divisi-grid">
+                <div class="divisi">
+                    <a href="hutan_gunung.html">
+                        <img src="foto dikjut 2025/logo hutan gunung.webp" alt="Divisi Hutan Gunung">
+                    </a>
+                </div>
+                <div class="divisi">
+                    <a href="konservasi_lingkungan.html">
+                        <img src="foto dikjut 2025/klh.webp" alt="Divisi Konservasi Lingkungan">
+                    </a>
+                </div>
+                <div class="divisi">
+                    <a href="jurnalistik.html">
+                        <img src="foto dikjut 2025/jurnalistik.webp" alt="Divisi Jurnalistik">
+                    </a>
+                </div>
+                <div class="divisi">
+                    <a href="rock_climbing.html">
+                        <img src="foto dikjut 2025/logo rc.webp" alt="Divisi Rock Climbing">
+                    </a>
+                </div>
+            </div>
+            <div id="infoDivisi" class="info-box">
+                <p id="divisiText">Klik salah satu divisi untuk melihat kegiatannya.</p>
+            </div>
+        </section>
+        
+       
+    
+        <script>
+            function showInfo(divisi) {
+                let text = "";
+                if (divisi === "divisi1") {
+                    text = "Divisi Hutan Gunung:Divisi Hutan Gunung biasanya berfokus pada kegiatan seperti konservasi alam, pendakian, pemetaan ekosistem, dan edukasi lingkungan";
+                } else if (divisi === "divisi2") {
+                    text = "Divisi Konservasi: Melakukan reboisasi, pembersihan sampah, dan penelitian keanekaragaman hayati.";
+                } else if (divisi === "divisi3") {
+                    text = "Divisi Jurnalistik: Mendokumentasikan kegiatan dan mengelola media sosial serta berita lingkungan.";
+                } else if (divisi === "divisi4") {
+                    text = "Divisi Rock climbing: kegiatan panjat tebing dengan elemen seperti tebing curam dan pendaki. ";
+                }
+                document.getElementById("divisiText").innerText = text;
+            }
+        </script>
+    
+    </section>  
+    
+
+    <section class="tim">
+        <h2>Tim Kami</h2>
+        <div class="tim-grid">
+            <div class="anggota">
+                <img src="foto dikjut 2025/ketum.jpg" alt="Ketua Umum">
+                <h4>M. Adnan Hidayat</h4>
+                <p>Ketua MPL</p>
+            </div>
+            <div class="anggota">
+                <img src="foto dikjut 2025/ketum.jpg" alt="Wakil Ketua">
+                <h4>Sekretaris</h4>
+                <p>Sekretaris MPL</p>
+            </div>
+            <div class="anggota">
+                <img src="foto dikjut 2025/ketum.jpg" alt="Sekretaris">
+                <h4>Bendahara</h4>
+                <p>Bendahara MPL</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Mahasiswa Peduli Lingkungan | Universitas Hamzanwadi</p>
+    </footer>
+
+</body>
+</html>
