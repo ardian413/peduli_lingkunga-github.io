@@ -205,83 +205,125 @@ html, body {
 
     </style>
 <script>
-  
-    function toggleMenu() {
-        const menu = document.querySelector(".nav-menu");
-        menu.classList.toggle("show");
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.querySelector(".toggle-comments");
+    const commentsSection = document.querySelector(".comments");
 
-    function tambahKomentar() {
-        const nama = document.getElementById("nama").value;
-        const komentar = document.getElementById("komentar").value;
-        if (nama && komentar) {
-            const komentarBaru = document.createElement("div");
-            komentarBaru.classList.add("komentar-item");
-            komentarBaru.innerHTML = `<strong>${nama}:</strong> <p>${komentar}</p>`;
-            document.getElementById("daftar-komentar").appendChild(komentarBaru);
-            document.getElementById("nama").value = "";
-            document.getElementById("komentar").value = "";
-        }
-    }
-
-/*komentar*/
-document.addEventListener("DOMContentLoaded", function () {
-    const toggleButtons = document.querySelectorAll(".toggle-comments");
-
-    toggleButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-            const commentsSection = this.nextElementSibling;
-            commentsSection.classList.toggle("hidden");
-            this.textContent = commentsSection.classList.contains("hidden") ? "Lihat Komentar" : "Tutup Komentar";
-        });
+    toggleButton.addEventListener("click", function () {
+        commentsSection.classList.toggle("hidden");
+        toggleButton.textContent = commentsSection.classList.contains("hidden") ? "Lihat Komentar" : "Tutup Komentar";
     });
 
-    const commentForms = document.querySelectorAll(".commentForm");
+    const form = document.querySelector(".commentForm");
+    const commentList = document.querySelector(".commentList");
 
-    commentForms.forEach((form) => {
-        const commentList = form.nextElementSibling;
-        const postId = form.getAttribute("data-post-id"); // Menggunakan ID unik per postingan
-
-        // Fungsi untuk memuat komentar dari LocalStorage
-        function loadComments() {
-            const storedComments = JSON.parse(localStorage.getItem(`comments-${postId}`)) || [];
+    // Ambil komentar dari server (ambil_komentar.php)
+    fetch("ambil_komentar.php")
+        .then(res => res.json())
+        .then(data => {
             commentList.innerHTML = "";
-            storedComments.forEach(({ name, comment }) => {
-                const commentItem = document.createElement("div");
-                commentItem.classList.add("comment-item");
-                commentItem.innerHTML = `<strong>${name}:</strong> <p>${comment}</p>`;
-                commentList.appendChild(commentItem);
+            data.forEach(({ nama, isi }) => {
+                const item = document.createElement("div");
+                item.classList.add("comment-item");
+                item.innerHTML = `<strong>${nama}:</strong><p>${isi}</p>`;
+                commentList.appendChild(item);
             });
-        }
+        })
+        .catch(err => console.error("Gagal ambil komentar:", err));
 
-        // Panggil fungsi loadComments saat halaman dimuat
-        loadComments();
+    // Kirim komentar ke server (simpan_komentar.php)
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const name = form.querySelector(".name").value;
+        const comment = form.querySelector(".comment").value;
 
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            const name = form.querySelector(".name").value;
-            const comment = form.querySelector(".comment").value;
-
-            if (name.trim() !== "" && comment.trim() !== "") {
-                const newComment = { name, comment };
-                const storedComments = JSON.parse(localStorage.getItem(`comments-${postId}`)) || [];
-
-                storedComments.push(newComment);
-                localStorage.setItem(`comments-${postId}`, JSON.stringify(storedComments));
-
-                // Tambahkan komentar ke tampilan tanpa memuat ulang
-                const commentItem = document.createElement("div");
-                commentItem.classList.add("comment-item");
-                commentItem.innerHTML = `<strong>${name}:</strong> <p>${comment}</p>`;
-                commentList.appendChild(commentItem);
-
-                // Hapus isi formulir setelah komentar dikirim
+        if (name.trim() && comment.trim()) {
+            fetch("simpan_komentar.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `nama=${encodeURIComponent(name)}&komentar=${encodeURIComponent(comment)}`
+            })
+            .then(res => res.ok ? res.text() : Promise.reject("Gagal simpan komentar"))
+            .then(() => {
+                const item = document.createElement("div");
+                item.classList.add("comment-item");
+                item.innerHTML = `<strong>${name}:</strong><p>${comment}</p>`;
+                commentList.prepend(item);
                 form.reset();
-            }
+            })
+            .catch(err => alert("Terjadi kesalahan: " + err));
+        }
+    });
+});
+  //like
+document.addEventListener("DOMContentLoaded", function () {
+    const likeButtons = document.querySelectorAll(".like-button");
+
+    likeButtons.forEach(button => {
+        const article = button.closest("article");
+        const postId = article.getAttribute("data-post-id");
+        const likeCountSpan = button.querySelector(".like-count");
+
+        // Ambil jumlah like dari server
+        fetch(`ambil_like.php?id=${postId}`)
+            .then(res => res.json())
+            .then(data => {
+                likeCountSpan.textContent = data.jumlah;
+            });
+
+        // Kirim like ke server saat tombol diklik
+        button.addEventListener("click", function () {
+            fetch("simpan_like.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `id=${postId}`
+            })
+            .then(res => res.json())
+            .then(data => {
+                likeCountSpan.textContent = data.jumlah;
+            });
         });
     });
 });
+ //like ip
+document.addEventListener("DOMContentLoaded", function () {
+    const likeButtons = document.querySelectorAll(".like-button");
+
+    likeButtons.forEach(button => {
+        const article = button.closest("article");
+        const postId = article.getAttribute("data-post-id");
+        const likeCountSpan = button.querySelector(".like-count");
+
+        // Ambil like dari server
+        fetch(`ambil_like.php?id=${postId}`)
+            .then(res => res.json())
+            .then(data => {
+                likeCountSpan.textContent = data.jumlah;
+            });
+
+        // Saat tombol diklik
+       function likePost(postId, button) {
+    if (button.classList.contains("liked")) return; // Cegah klik ganda
+
+    fetch("like_post.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `id=${postId}`
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "berhasil") {
+            const span = button.querySelector(".like-count");
+            span.textContent = data.jumlah;
+            button.classList.add("liked");
+        } else {
+            alert("Kamu sudah like sebelumnya.");
+        }
+    });
+}
+    });
+});
+
 
 
 </script>
@@ -308,24 +350,24 @@ document.addEventListener("DOMContentLoaded", function () {
     
     <!-- Konten Sastra Hijau -->
     <section class="sastra">
-        <article class="karya">
-            <h2>Puisi: Rinduku Pada Alam</h2><br>
-    
-            <!-- Info Penulis -->
-            <div class="penulis">
-                <img src="foto dikjut 2025/cosip.jpg" alt="Penulis 1">
-                <p><strong>Nma Rimba: Cosip <br>
-                angkatan II</strong></p>
-            </div>
-    
-            <p>
-                Pepohonan bergoyang ditiup angin<br>
-                Suara burung menyanyikan kedamaian<br>
-                Namun kini semua tinggal bayangan<br>
-                Alam menangis kehilangan teman
-            </p><br>      
-        </article>
-        <article class="karya">
+        <article class="karya" data-post-id="1">
+    <h2>Puisi: Rinduku Pada Alam</h2>
+    <div class="penulis">
+        <img src="foto dikjut 2025/cosip.jpg" alt="Penulis 1">
+        <p><strong>Nama Rimba: Cosip <br> Angkatan II</strong></p>
+    </div>
+
+    <p>
+        Pepohonan bergoyang ditiup angin<br>
+        Suara burung menyanyikan kedamaian<br>
+        Namun kini semua tinggal bayangan<br>
+        Alam menangis kehilangan teman
+    </p>
+
+    <button class="like-button">❤️ Like (<span class="like-count">0</span>)</button>
+</article>
+
+        <article class="karya" data-post-id="2">
             <h2>Puisi/cerpen/pantun</h2><br>
     
             <!-- Info Penulis -->
@@ -338,8 +380,9 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>
                 ...
             </p><br>
+                <button class="like-button">❤️ Like (<span class="like-count">0</span>)</button>
         </article>
-        <article class="karya">
+        <article class="karya" data-post-id="3">
             <h2>Puisi/cerpen/pantun</h2><br>
             <!-- Info Penulis -->
             <div class="penulis">
@@ -350,6 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>
                 ...
             </p><br>
+                <button class="like-button">❤️ Like (<span class="like-count">0</span>)</button>
         </article>
         <!-- Tombol untuk menampilkan komentar -->
         <button class="toggle-comments">Lihat Komentar</button>

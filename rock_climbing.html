@@ -96,6 +96,7 @@ header {
     background: #fbc02d;
 }
 
+/*poto
 /* Kegiatan Section */
 .kegiatan {
     padding: 50px 20px;
@@ -150,6 +151,50 @@ footer {
         align-items: center;
     }
 }
+ body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+    }
+
+    .section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px;
+      background-color: #f2f2f2;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section.reverse {
+      flex-direction: row-reverse; /* agar gambar di kiri, teks di kanan */
+    }
+
+    .section-text {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .section-text h2 {
+      color: #1b5e20;
+    }
+
+    .section-image {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .section-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+      }
+    }
 
 </style>
 <body>
@@ -194,6 +239,36 @@ footer {
             </div>
         </div>
     </section>
+    <div class="section">
+    <div class="section-text">
+      <h2>🧗‍♂️ Panjat Tebing Alam (Waterfall Rock Climbing)</h2> <br>
+      <h3>Mengukir jejak di dinding alam.</h3>
+      <p>Kegiatan panjat tebing alam bukan hanya tentang kekuatan fisik, tapi juga soal keberanian menghadapi tantangan nyata di alam terbuka. Kami belajar memahami tekstur bebatuan, menjaga keseimbangan, dan menyatu dengan alam. Setiap pijakan adalah langkah menuju ketangguhan dan solidaritas.</p>
+    </div>
+    <div class="section-image">
+      <img src="kegiatan RC/panjat tebing.jpeg" alt="Lindungi Laut">
+    </div>
+  </div>
+  <div class="section reverse">
+    <div class="section-text">
+      <h2>🔗 Latihan Ascending & Descending (Simulasi Teknik Tali)</h2> <br>
+      <h3>Teknik adalah kunci keselamatan.</h3>
+      <p>Latihan ascending dan descending merupakan dasar penting dalam dunia panjat tebing. Melalui simulasi ini, kami mengasah teknik penggunaan alat seperti ascender, descender, dan harness dengan tepat. Kegiatan ini melatih disiplin, tanggung jawab, dan kesiapan menghadapi medan vertikal secara aman.</p>
+    </div>
+    <div class="section-image">
+      <img src="kegiatan RC/ascending dan descending.jpeg" alt="Lindungi Laut">
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-text">
+      <h2>🧗‍♀️ Lomba Panjat Tebing (Wall Climbing Competition)</h2> <br>
+      <h3>Semangat, strategi, dan kecepatan menjadi satu.</h3>
+      <p >Ajang lomba panjat tebing menjadi wadah untuk menunjukkan kemampuan terbaik para atlet dalam menaklukkan dinding vertikal. Tidak hanya adu fisik dan teknik, lomba ini juga melatih mental bertanding, fokus, dan kerja sama tim. Di setiap genggaman dan pijakan, ada tekad untuk mencapai puncak dan melampaui batas diri.</p>
+    </div>
+    <div class="section-image">
+      <img src="kegiatan RC/tugas4_yanis ardian_TID.jpg" alt="Lindungi Laut">
+    </div>
+  </div>
 
     <footer>
         <p>&copy; 2025 Divisi Rock Climbing Universitas Hamzanwadi</p>
